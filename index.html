@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="container">
+    <img src="image-removebg-preview (12).png" class="clouds">
+    <p class="result-display">You:0 , Computer:0</p>
+   
+    <img src="image-removebg-preview (12).png" class="clouds2">
+    
+    <div class="wrapper">
+<button
+onclick="
+random();
+run('Rock')"  class="btn">
+<img src="download__2_-removebg-preview.png" class="rock-img">
+    
+</button>
+
+<button
+onclick="
+random();
+run('Paper')" class="btn">
+    <img src="image-removebg-preview (10).png" class="paper-img">
+</button>
+
+
+<button onclick="
+random();
+run('Scissors')"  class="btn">    
+    <img src="image-removebg-preview (11).png" class="scissors-img">
+</button>
+<br>
+<div class="p-div">
+
+<p class="plymove , p1"  ></p>
+<p class="commove , p1"></p>
+
+<p class="finale , p1"></p>
+</div>
+
+
+
+</div>
+</div>
+
+</body>
+
+
+<script>
+    let computermove = '';
+
+    let finalresult = '';
+
+    let you = 0;
+
+    let computer = 0;
+
+    
+
+    function run(playermove){
+
+        if (playermove === 'Rock' && computermove === 'Rock' || playermove === 'Paper' && computermove === 'Papers' || playermove === 'Scissors' && computermove === 'Scissors') {
+        finalresult = 'Tie';
+      } else if (playermove === 'Rock' && computermove === 'Scissors' || playermove === 'Paper' && computermove === 'Rock' || playermove === 'Scissors' && computermove === 'Papers') {
+        finalresult = 'You Win';
+        you++;
+        document.querySelector('.result-display').innerText=`You:${you}  ,  Computer:${computer}`;
+      } else if (playermove === 'Rock' && computermove === 'Paper' || playermove === 'Paper' && computermove === 'Scissors' || playermove === 'Scissors' && computermove === 'Rock') {
+        finalresult = 'You Lose';
+        computer++;
+        document.querySelector('.result-display').innerText=`You:${you}  , Computer:${computer}`;
+      }
+
+      switch(true){
+
+        case you===10:
+          alert("You Win");
+          you=0;
+          computer=0;
+          document.querySelector('.result-display').innerHTML=`You:${you} ,  Computer:${computer}`;
+          break;
+
+          case computer===10:
+          alert("You Lose"); 
+          you=0;
+          computer=0;
+          document.querySelector('.result-display').innerHTML=`You:${you}  ,  Computer:${computer}`;
+          break;
+
+      }
+      
+        
+
+    document.querySelector('.plymove').innerHTML=`You : ${playermove}`
+
+    document.querySelector('.commove').innerHTML=`Computer : ${computermove}`
+
+    document.querySelector('.finale').innerHTML=`Result : ${finalresult}`
+
+    }
+
+    
+
+
+    function random(){
+        const random = Math.random();
+
+        if (random >= 0 && random < 1 / 3) {
+        computermove = 'Rock';
+      } else if (random >= 1 / 3 && random < 1 / 2) {
+        computermove = 'Papers';
+      } else if (random >= 1 / 2 && random <= 1) {
+        computermove = 'Scissors';
+      }
+    }
+
+</script>
+</html>
