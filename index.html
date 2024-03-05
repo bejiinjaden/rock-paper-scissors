@@ -75,7 +75,7 @@ run('Scissors')"  class="btn">
         finalresult = 'You Win';
         you++;
         document.querySelector('.result-display').innerText=`You:${you}  ,  Computer:${computer}`;
-      } else if (playermove === 'Rock' && computermove === 'Paper' || playermove === 'Paper' && computermove === 'Scissors' || playermove === 'Scissors' && computermove === 'Rock') {
+      } else if (playermove === 'Rock' && computermove === 'Papers' || playermove === 'Paper' && computermove === 'Scissors' || playermove === 'Scissors' && computermove === 'Rock') {
         finalresult = 'You Lose';
         computer++;
         document.querySelector('.result-display').innerText=`You:${you}  , Computer:${computer}`;
